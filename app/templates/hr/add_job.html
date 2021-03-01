@@ -1,0 +1,168 @@
+{% extends 'base/layout.html' %}
+{% block body %}
+<body>
+	<div class="splash active">
+		<div class="splash-icon">
+			
+		</div>
+	</div>
+	<div class="wrapper">
+		{% include "includes/_sidenav-hr.html" %}
+		<div class="main">
+			{% include "includes/_navbar-hr.html" %}
+			<main class="content main h-100 w-100">>
+			<div class="container-fluid">
+
+					<div class="header">
+						<h1 class="header-title">
+							Hiring?
+						</h1>
+						<p class="header-subtitle">Add new Job vacanncy below..</p>
+					</div>
+			<div class="row h-100">
+				<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+					<div class="d-table-cell align-middle">
+
+						<div class="text-center mt-4">
+							<h1 class="h2">Get started with job details</h1>
+							<p class="lead">
+								Add Job Details below
+							</p>
+						</div>
+
+						<div class="card">
+							<div class="card-body">
+								<div class="m-sm-4">
+									<form action="/add_job" method="POST">
+										{{ form.hidden_tag() }}
+										<div class="form-group">
+											{{ form.title.label(class="")}}
+
+											{% if form.title.errors %}
+												{{ form.name(class="form-control form-control-lg is-invalid")}}
+												<div class="invalid-feedback">
+													{% for error in form.title.errors %}
+														<span>{{ error }}</span>
+													{% endfor %}
+													
+												</div>
+											{% else %}
+												{{ form.title(class="form-control form-control-lg")}}	
+
+											{% endif %}
+										</div>
+										<!-- <div class="form-group">
+											<label>Company</label>
+											<input class="form-control form-control-lg" type="text" name="company" placeholder="Enter your company name" />
+										</div> -->
+										<div class="form-group">
+											{{ form.description.label(class="")}}
+											{% if form.description.errors %}
+												{{ form.description(class="form-control form-control-lg is-invalid")}}
+												<div class="invalid-feedback">
+													{% for error in form.description.errors %}
+														<span>{{ error }}</span>
+													{% endfor %}
+													
+												</div>
+											{% else %}
+												{{ form.description(class="form-control form-control-lg")}}	
+
+											{% endif %}
+											
+											<!-- <label>Email</label>
+											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" /> -->
+										</div>
+										<div class="form-group">
+											{{ form.key_responsibilities.label(class="")}}
+											{% if form.key_responsibilities.errors %}
+												{{ form.key_responsibilities(class="form-control form-control-lg is-invalid")}}
+												<div class="invalid-feedback">
+													{% for error in form.key_responsibilities.errors %}
+														<span>{{ error }}</span>
+													{% endfor %}
+													
+												</div>
+											{% else %}
+												{{ form.key_responsibilities(class="form-control form-control-lg")}}	
+
+											{% endif %}
+											
+											<!-- <label>Password</label>
+											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" /> -->
+										</div>
+										<div class="form-group">
+											{{ form.qualifications.label(class="")}}
+											{% if form.qualifications.errors %}
+												{{ form.qualifications(class="form-control form-control-lg is-invalid")}}
+												<div class="invalid-feedback">
+													{% for error in form.qualifications.errors %}
+														<span>{{ error }}</span>
+													{% endfor %}
+													
+												</div>
+											{% else %}
+												{{ form.qualifications(class="form-control form-control-lg")}}	
+
+											{% endif %}
+
+											
+											<!-- <label>Password</label>
+											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" /> -->
+										</div>
+										<div class="form-group">
+											{{ form.date_posted.label(class="")}}
+											{% if form.date_posted.errors %}
+												{{ form.date_posted(class="form-control form-control-lg is-invalid")}}
+												<div class="invalid-feedback">
+													{% for error in form.date_posted.errors %}
+														<span>{{ error }}</span>
+													{% endfor %}
+													
+												</div>
+											{% else %}
+												{{ form.date_posted(class="form-control form-control-lg")}}	
+
+											{% endif %}
+
+											
+											<!-- <label>Password</label>
+											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" /> -->
+										</div>
+										<div class="form-group">
+											{{ form.due_date.label(class="")}}
+											{% if form.due_date.errors %}
+												{{ form.due_date(class="form-control form-control-lg is-invalid")}}
+												<div class="invalid-feedback">
+													{% for error in form.due_date.errors %}
+														<span>{{ error }}</span>
+													{% endfor %}
+													
+												</div>
+											{% else %}
+												{{ form.due_date(class="form-control form-control-lg")}}	
+
+											{% endif %}
+
+											
+											<!-- <label>Password</label>
+											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" /> -->
+										</div>
+										<div class="text-left mt-3">
+											<!-- <a href="dashboard-default.html" class="btn btn-lg btn-primary">Sign up</a> -->
+											{{ form.submit(class="btn btn-lg btn-primary")}}
+											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	{% endblock %}
+

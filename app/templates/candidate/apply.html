@@ -1,0 +1,132 @@
+{% extends 'base/layout.html' %}
+{% block body %}
+<body>
+	<div class="splash active">
+		<div class="splash-icon"></div>
+	</div>
+
+	<div class="wrapper">
+		{% include "includes/_sidenav-candidate.html" %}
+		<div class="main">
+			{% include "includes/_navbar-candidate.html" %}
+			<main class="content">
+				<div class="container-fluid">
+
+					<div class="header">
+						<h1 class="header-title">
+							Apply Job
+						</h1>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="{{url_for('candidate.candidate_index')}}">Dashboard</a></li>
+								<li class="breadcrumb-item"><a href="#">Pages</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Apply Jobs</li>
+							</ol>
+						</nav>
+					</div>
+					<div class="clearfix"></div>
+
+					<div class="row h-100">
+					<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+					<div class="d-table-cell align-middle">
+
+						<div class="card">
+							<div class="card-body">
+								<div class="m-sm-4">
+									<form action="/apply/<job_id>" method="POST">
+										{{ form.hidden_tag() }}
+										<div class="form-group">
+											{{ form.email.label(class="")}}
+
+											{% if form.email.errors %}
+												{{ form.email(class="form-control form-control-lg is-invalid")}}
+												<div class="invalid-feedback">
+													{% for error in form.email.errors %}
+														<span>{{ error }}</span>
+													{% endfor %}
+													
+												</div>
+											{% else %}
+												{{ form.email(class="form-control form-control-lg")}}	
+
+											{% endif %}
+										</div>
+										<!-- <div class="form-group">
+											<label>Company</label>
+											<input class="form-control form-control-lg" type="text" name="company" placeholder="Enter your company name" />
+										</div> -->
+										<div class="form-group">
+											{{ form.job_id.label(class="")}}
+											{% if form.job_id.errors %}
+												{{ form.job_id(class="form-control form-control-lg is-invalid")}}
+												<div class="invalid-feedback">
+													{% for error in form.job_id.errors %}
+														<span>{{ error }}</span>
+													{% endfor %}
+													
+												</div>
+											{% else %}
+												{{ form.job_id(class="form-control form-control-lg")}}	
+
+											{% endif %}
+											
+											<!-- <label>Email</label>
+											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" /> -->
+										</div>
+										<div class="form-group">
+											{{ form.apply_date.label(class="", value="datetime")}}
+											{% if form.apply_date.errors %}
+												{{ form.apply_date(class="form-control form-control-lg is-invalid")}}
+												<div class="invalid-feedback">
+													{% for error in form.apply_date.errors %}
+														<span>{{ error }}</span>
+													{% endfor %}
+													
+												</div>
+											{% else %}
+												{{ form.apply_date(class="form-control form-control-lg")}}	
+
+											{% endif %}
+											
+											<!-- <label>Password</label>
+											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" /> -->
+										</div>
+										<div class="form-group">
+											{{ form.cv_upload.label(class="")}}
+											{% if form.cv_upload.errors %}
+												{{ form.cv_upload(class="  is-invalid")}}
+												<div class="invalid-feedback">
+													{% for error in form.cv_upload.errors %}
+														<span>{{ error }}</span>
+													{% endfor %}
+													
+												</div>
+											{% else %}
+												{{ form.cv_upload(class="form-control form-control-lg")}}	
+
+											{% endif %}
+
+											
+											<!-- <label>Password</label>
+											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" /> -->
+										</div>
+										
+										
+										<div class="text-left mt-3">
+											<!-- <a href="dashboard-default.html" class="btn btn-lg btn-primary">Sign up</a> -->
+											{{ form.submit(class="btn btn-lg btn-primary")}}
+											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+					</div>
+				</div>
+			</main>
+{% endblock %}

@@ -1,0 +1,312 @@
+{% extends 'base/layout.html' %}
+{% block body %}
+<body>
+	<div class="splash active">
+		<div class="splash-icon"></div>
+	</div>
+
+	<div class="wrapper">
+		{% include "includes/_sidenav-candidate.html" %}
+		<div class="main">
+			{% include "includes/_navbar-candidate.html" %}
+			<main class="content">
+				<div class="container-fluid">
+
+					<div class="header">
+						<h1 class="header-title">
+							Skillset
+						</h1>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="{{url_for('candidate.candidate_index')}}">Dashboard</a></li>
+								<li class="breadcrumb-item"><a href="#">Pages</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Skillset</li>
+							</ol>
+						</nav>
+					</div>
+					<div class="row">
+						<div class="col-md-3 col-xl-2">
+
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Skillset </h5>
+								</div>
+
+								<div class="list-group list-group-flush" role="tablist">
+									<a class="list-group-item list-group-item-action active" data-toggle="list" href="#skillset" role="tab">
+										My Skills 
+									</a>
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#summary" role="tab">
+										Summary
+									</a>
+									
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-9 col-xl-10">
+							<div class="tab-content">
+								<div class="tab-pane fade show active" id="skillset" role="tabpanel">
+
+									<div class="card">
+										<div class="card-header">
+											<div class="card-actions float-right">
+												<a href="#" class="mr-1">
+													<i class="align-middle" data-feather="refresh-cw"></i>
+												</a>
+												<div class="d-inline-block dropdown show">
+													<a href="#" data-toggle="dropdown" data-display="static">
+														<i class="align-middle" data-feather="more-vertical"></i>
+													</a>
+
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="#">Action</a>
+														<a class="dropdown-item" href="#">Another action</a>
+														<a class="dropdown-item" href="#">Something else here</a>
+													</div>
+												</div>
+											</div>
+											<h5 class="card-title mb-0">Choose at least three that closely resemble your abilities</h5>
+											<small style="color: red;">Give a score between 0-10</small>
+										</div>
+										<div class="card-body">
+											<form>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="inputSkill1">Skill 1</label>
+															<input type="text" class="form-control" id="inputUsername" placeholder="eg. Teamwork">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="radio">Score </label>
+															<div>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="1">
+																	<span class="form-check-label">1</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="2">
+																	<span class="form-check-label">2</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="3">
+																	<span class="form-check-label">3</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="4">
+																	<span class="form-check-label">4</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="5">
+																	<span class="form-check-label">5</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="6">
+																	<span class="form-check-label">6</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="7">
+																	<span class="form-check-label">7</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="8">
+																	<span class="form-check-label">8</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="9">
+																	<span class="form-check-label">9</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="10">
+																	<span class="form-check-label">10</span>
+																</label>
+																</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="inputSkill2">Skill 2</label>
+															<input type="text" class="form-control" id="inputUsername" placeholder="eg. Management">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="radio">Score </label>
+															<div>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="1">
+																	<span class="form-check-label">1</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="2">
+																	<span class="form-check-label">2</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="3">
+																	<span class="form-check-label">3</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="4">
+																	<span class="form-check-label">4</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="5">
+																	<span class="form-check-label">5</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="6">
+																	<span class="form-check-label">6</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="7">
+																	<span class="form-check-label">7</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="8">
+																	<span class="form-check-label">8</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="9">
+																	<span class="form-check-label">9</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="10">
+																	<span class="form-check-label">10</span>
+																</label>
+																</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="inputSkill2">Skill 3</label>
+															<input type="text" class="form-control" id="inputUsername" placeholder="eg. Problem Solving">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="radio">Score </label>
+															<div>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="1">
+																	<span class="form-check-label">1</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="2">
+																	<span class="form-check-label">2</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="3">
+																	<span class="form-check-label">3</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="4">
+																	<span class="form-check-label">4</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="5">
+																	<span class="form-check-label">5</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="6">
+																	<span class="form-check-label">6</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="7">
+																	<span class="form-check-label">7</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="8">
+																	<span class="form-check-label">8</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="9">
+																	<span class="form-check-label">9</span>
+																</label>
+																<label class="form-check form-check-inline">
+																	<input class="form-check-input" type="radio" name="skillscore" value="10">
+																	<span class="form-check-label">10</span>
+																</label>
+																</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-3">
+														<div class="form-group">
+															<button type="submit" class="btn btn-primary">Save changes</button>
+														</div>
+													</div>
+												</div>
+											</form>
+
+										</div>
+									</div>
+							</div>
+							<div class="tab-pane fade show " id="summary" role="tabpanel">
+								<div class="card">
+									<div class="card-header">
+										<h5 class="card-title mb-0">Summary of Skills</h5>	
+									</div>
+									<div class="card-body">
+										<form>
+											<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="inputSkill2">Skill 1</label>
+															<output type="text" class="form-control">Skill 1 name</output>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="score">Score</label>
+															<output class="form-control">10</output>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="inputSkill2">Skill 2</label>
+															<output type="text" class="form-control">Skill 2 name</output>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="score">Score</label>
+															<output class="form-control">10</output>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="inputSkill2">Skill 3</label>
+															<output type="text" class="form-control">Skill 3 name</output>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="score">Score</label>
+															<output class="form-control">1</output>
+														</div>
+													</div>
+												</div>	
+
+											
+										</form>
+										
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+{% endblock %}

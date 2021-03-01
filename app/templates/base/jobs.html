@@ -1,0 +1,161 @@
+{% extends 'base/layout.html' %}
+{% block body %}
+<body>
+	<div class="splash active">
+		<div class="splash-icon"></div>
+	</div>
+{% if current_user.is_authenticated %}
+	{% if current_user.role == 'candidate' %}
+		<div class="wrapper">
+			{% include "includes/_sidenav-candidate.html" %}
+			<div class="main">
+				{% include "includes/_navbar-candidate.html" %}
+				<form class="form-inline d-none d-sm-inline-block">
+						<input class="form-control form-control-lite" type="text" placeholder="Search for a job...">
+					</form>
+
+	{% elif current_user.role == 'hr' %}
+		<div class="wrapper">
+			{% include "includes/_sidenav-hr.html" %}
+			<div class="main">
+				{% include "includes/_navbar-hr.html" %}
+				<form class="form-inline d-none d-sm-inline-block">
+						<input class="form-control form-control-lite" type="text" placeholder="Search for a job...">
+					</form>
+	{% else %}
+		<div class="wrapper">
+			{% include "includes/_sidenav-admin.html" %}
+			<div class="main">
+				{% include "includes/_navbar-admin.html" %}
+				<form class="form-inline d-none d-sm-inline-block">
+						<input class="form-control form-control-lite" type="text" placeholder="Search for a job...">
+					</form>
+	{% endif %}
+	
+{% else %}
+	<div class="wrapper">
+		{% include "includes/_sidenav-general.html" %}
+		<div class="main">
+			{% include "includes/_navbar-general.html" %}
+			<form class="form-inline d-none d-sm-inline-block">
+					<input class="form-control form-control-lite" type="text" placeholder="Search for a job...">
+				</form>
+{% endif %}
+			<main class="content">
+				<div class="container-fluid">
+
+					<div class="header">
+						<h1 class="header-title">
+							Jobs
+						</h1>
+						{% if current_user.is_authenticated %}
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+									<li class="breadcrumb-item"><a href="#">Pages</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Jobs</li>
+								</ol>
+							</nav>
+						{% endif %}
+					</div>
+					{% if current_user.role == 'candidate'%}
+						<div class="row">
+							{% for job in job %}
+							<div class="col-12 col-lg-4 col-xl-6">
+								<div class="card">
+								<h5 class="card-title">Job Title : {{job.title }}</h5>
+										<h6 class="card-subtitle text-muted">Description : {{ job.description }}</h6>
+										<h7 class="card-subtitle text-muted">Job ID: {{ job.id }}</h7>
+									</div>
+									<div class="card-body p-3">
+
+										<div id="tasks-upcoming">
+											<div class="card mb-3 bg-light cursor-grab">
+												<div class="card-body p-3">
+													<p><b>Qualifications :</b><br> {{ job.qualifications }}</p>
+													<p><b>Responsibilites :</b><br> {{ job.key_responsibilities }}</p>
+													<p><b>Due Date :</b> {{ job.due_date }}</p>
+													<p><b>Date Posted : </b>{{ job.date_posted}}</p>
+													<a class="btn btn-primary btn-sm" href="#">View Applicants</a>
+												</div>
+											</div>
+											{% if current_user.is_authenticated %}
+												<a href="/apply/{{ job.id}}" class="btn btn-primary btn-block">Apply</a>
+											{% else %}
+												<a href="#" class="btn btn-primary btn-block">Log in to Apply</a>
+											{% endif %}
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					{% elif current_user.role == 'hr' %}
+					<div class="row">
+							{% for job in job %}
+							<div class="col-12 col-lg-6 col-xl-6">
+								<div class="card">
+									<div class="card-header">
+										<h5 class="card-title">Job Title : {{job.title }}</h5>
+										<h6 class="card-subtitle text-muted">Description : {{ job.description }}</h6>
+										<h7 class="card-subtitle text-muted">Job ID: {{ job.id }}</h7>
+									</div>
+									<div class="card-body p-3">
+
+										<div id="tasks-upcoming">
+											<div class="card mb-3 bg-light cursor-grab">
+												<div class="card-body p-3">
+													<p><b>Qualifications :</b><br> {{ job.qualifications }}</p>
+													<p><b>Responsibilites :</b><br> {{ job.key_responsibilities }}</p>
+													<p><b>Due Date :</b> {{ job.due_date }}</p>
+													<p><b>Date Posted : </b>{{ job.date_posted}}</p>
+													<a class="btn btn-primary btn-sm" href="#">View Applicants</a>
+												</div>
+											</div>
+											{% if current_user.is_authenticated %}
+												<a href="#" class="btn btn-primary btn-block">Edit Job Post</a>
+											{% else %}
+												<a href="#" class="btn btn-primary btn-block">Log in to Apply</a>
+											{% endif %}
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					{% else %}
+					<div class="row">
+							{% for job in job %}
+							<div class="col-12 col-lg-6 col-xl-3">
+								<div class="card">
+									<div class="card-header">
+										<h5 class="card-title">Job Title : {{job.title }}</h5>
+										<h6 class="card-subtitle text-muted">Description : {{ job.description }}</h6>
+										<h7 class="card-subtitle text-muted">Job ID: {{ job.id }}</h7>
+									</div>
+									<div class="card-body p-3">
+
+										<div id="tasks-upcoming">
+											<div class="card mb-3 bg-light cursor-grab">
+												<div class="card-body p-3">
+													<p><b>Qualifications :</b><br> {{ job.qualifications }}</p>
+													<p><b>Responsibilites :</b><br> {{ job.key_responsibilities }}</p>
+													<p><b>Due Date :</b> {{ job.due_date }}</p>
+													<p><b>Date Posted : </b>{{ job.date_posted}}</p>
+													<a class="btn btn-primary btn-sm" href="#">View Applicants</a>
+												</div>
+											</div>
+											{% if current_user.is_authenticated %}
+												<a href="#" class="btn btn-primary btn-block">Apply</a>
+											{% else %}
+												<a href="{{ url_for('candidate.apply_job')}}" class="btn btn-primary btn-block">Apply</a>
+											{% endif %}
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					{% endif %}
+				</div>
+			</main>
+{% endblock %}

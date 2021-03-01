@@ -1,0 +1,70 @@
+{% extends 'base/layout.html' %}
+{% block body %}
+<body>
+	<div class="splash active">
+		<div class="splash-icon"></div>
+	</div>
+
+	<div class="wrapper">
+		{% include "includes/_sidenav-candidate.html" %}
+		<div class="main">
+			{% include "includes/_navbar-candidate.html" %}
+			<main class="content">
+				<div class="container-fluid">
+
+					<div class="header">
+						<h1 class="header-title">
+							Apply Job
+						</h1>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="{{url_for('candidate.candidate_index')}}">Dashboard</a></li>
+								<li class="breadcrumb-item"><a href="#">Pages</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Apply Jobs</li>
+							</ol>
+						</nav>
+					</div>
+					<div class="row">
+						<div class="col-md-3 col-xl-12">
+
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Apply for a job</h5>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<form action="" enctype="multipart/form-data" method="POST">
+                                            {{ form.csrf_token }}
+                                            <div class="row">
+                                                    <div class="col-12 form-group">
+                                                        <label>Email</label>
+                                                        <output type="email" name="email" value="email" class="form-control">{{ current_user.email }}</output>
+                                                        
+                                                    </div>
+                                                    <div class="col-6 form-group">
+                                                        <input type="text" name="job_id" placeholder="Job ID" class="form-control">
+                                                        {% for error in form.job_id.errors %}
+                                                            <small class="text-danger">{{ error }}</small>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-6 form-group">
+                                                        {{ form.cv_upload }}
+                                                        {% for error in form.apply_date.errors %}
+                                                            <small class="text-danger">{{ error }}</small>
+                                                        {% endfor %}
+                                                    </div>
+                                                    
+                                                    <div class="col-6 form-group">
+                                                        <label>Ready to apply?</label>
+                                                        <input type="Submit" name="Apply" class="btn btn-primary"/>
+                                                    </div>
+                                            </div>
+                                        </form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+{% endblock %}

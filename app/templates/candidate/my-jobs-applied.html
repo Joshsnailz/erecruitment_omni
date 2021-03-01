@@ -1,0 +1,228 @@
+{% extends 'base/layout.html' %}
+{% block body %}
+<body>
+	<div class="splash active">
+		<div class="splash-icon"></div>
+	</div>
+
+	<div class="wrapper">
+		{% include "includes/_sidenav-candidate.html" %}
+		<div class="main">
+			{% include "includes/_navbar-candidate.html" %}
+			<main class="content">
+				<div class="container-fluid">
+					<div class="header">
+						<h1 class="header-title">
+							My Applications
+						</h1>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="{{url_for('candidate.candidate_index')}}">Dashboard</a></li>
+								<li class="breadcrumb-item"><a href="#">Pages</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Applied Jobs</li>
+							</ol>
+						</nav>
+					</div>
+					<div class="row">
+						<div class="col-md-3 col-xl-2">
+
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Applications</h5>
+								</div>
+
+								<div class="list-group list-group-flush" role="tablist">
+									<a class="list-group-item list-group-item-action active" data-toggle="list" href="#complete-applications" role="tab">
+										Complete Applications
+									</a>
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#incomplete-applications" role="tab">
+										Incomplete Applications
+									</a>
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#previous-applications" role="tab">
+										Previous Applications
+									</a>
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#all-applications" role="tab">
+										All Applications
+									</a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="col-md-9 col-xl-10">
+							<div class="tab-content">
+								<div class="tab-pane fade show active" id="complete-applications" role="tabpanel">
+
+									<div class="card">
+										<div class="card-header">
+											<div class="card-actions float-right">
+												<a href="#" class="mr-1">
+													<i class="align-middle" data-feather="refresh-cw"></i>
+												</a>
+												<div class="d-inline-block dropdown show">
+													<a href="#" data-toggle="dropdown" data-display="static">
+														<i class="align-middle" data-feather="more-vertical"></i>
+													</a>
+
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="#">Action</a>
+														<a class="dropdown-item" href="#">Another action</a>
+														<a class="dropdown-item" href="#">Something else here</a>
+													</div>
+												</div>
+											</div>
+											<h5 class="card-title mb-0">Complete Applications</h5>
+										</div>
+										<div class="card-body">
+											<form>
+												{% for job in jobs %}
+												<div class="row">
+													<div class="col-md-8">
+														<div class="form-group">
+															<label for="inputUsername">Job ID</label>
+															<output type="text" class="form-control"  placeholder="Job Name">Call Centre Agent</output> 
+														</div>
+														<div class="form-group">
+															<label for="inputUsername">Applicated Submission date</label>
+															<output type="date" class="form-control" id="applyDate"></output>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div class="text-center">
+															<img alt="Chris Wood" src="{{url_for('static', filename='img/photos/job_post.jpg')}}" class="rounded-circle img-responsive mt-2"
+																width="128" height="128" />
+														
+														
+														</div>
+													</div>
+												</div>
+												{% endfor %}
+
+												<button type="submit" class="btn btn-primary outline">Check Response Status</button>
+											</form>
+
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade show" id="incomplete-applications" role="tabpanel">
+
+									<div class="card">
+										<div class="card-header">
+											<h5 class="card-title mb-0">Incomplete Applications</h5>
+										</div>
+										<div class="card-body">
+											<form>
+												<div class="row">
+													<div class="col-md-8">
+														<div class="form-group">
+															<label for="inputUsername">Job Title</label>
+															<output type="text" class="form-control"  placeholder="Job Name">Call Centre Agent</output> 
+														</div>
+														<div class="form-group">
+															<label for="inputUsername">Applicated due date</label>
+															<output type="date" class="form-control" id="applyDate"></output>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div class="text-center">
+															<img alt="Chris Wood" src="{{url_for('static', filename='img/photos/job_post.jpg')}}" class="rounded-circle img-responsive mt-2"
+																width="128" height="128" />
+														
+														
+														</div>
+													</div>
+												</div>
+											</form>
+
+										</div>
+									</div>
+
+									<div class="card">
+										<div class="card-header">
+											<h5 class="card-title mb-0">Comments </h5>
+										</div>
+										<div class="card-body">
+											<form>
+												<div class="form-row">
+													<div class="form-group col-md-12">
+														<label for="inputFirstName">Comment 1</label>
+														<input type="text" class="form-control" id="inputFirstName" placeholder="Comment 1">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="inputEmail4">Comment 2</label>
+													<input type="email" class="form-control" id="inputEmail4" placeholder="Comment 2">
+												</div>
+												<div class="form-group">
+													<label for="inputAddress">Comment 3</label>
+													<input type="text" class="form-control" id="inputAddress" placeholder="Comment 3">
+												</div>
+												<div class="form-group">
+													<label for="inputAddress2">Comment 4</label>
+													<input type="text" class="form-control" id="inputAddress2" placeholder="Comment 4">
+												</div>
+												<button type="submit" class="btn btn-primary">Save changes</button>
+											</form>
+
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade show" id="previous-applications" role="tabpanel">
+									<div class="card">
+										<div class="card-header">
+
+										<h5 class="card-title mb-0">Previous Applications</h5>
+										</div>
+										<div class="card-body">
+											<form>
+												<div class="row">
+													<div class="col-md-8">
+														<div class="form-group">
+															<label for="inputUsername">Job Title</label>
+															<output type="text" class="form-control"  placeholder="Job Name">Call Centre Agent</output> 
+														</div>
+														<div class="form-group">
+															<label for="inputUsername">Applicated Submission date</label>
+															<output type="date" class="form-control" id="applyDate"></output>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div class="text-center">
+															<img alt="Chris Wood" src="{{url_for('static', filename='img/photos/job_post.jpg')}}" class="rounded-circle img-responsive mt-2"
+																width="128" height="128" />
+														
+														
+														</div>
+													</div>
+												</div>
+
+												<button type="submit" class="btn btn-primary outline">Reapply</button>
+											</form>
+
+										</div>	
+									</div>
+								</div>
+								<div class="tab-pane fade show" id="all-applications" role="tabpanel">
+									<div class="card">
+										<form>
+											<div class="row">
+												<div class="col-md-8">
+														<div class="form-group">
+															<label for="inputUsername">Job Title</label>
+															<output type="text" class="form-control"  placeholder="Job Name">Call Centre Agent</output> 
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div class="form-group">
+															<div class="text-center"><img alt="Chris Wood" src="{{url_for('static', filename='img/photos/job_post.jpg')}}" class="rounded-circle img-responsive mt-2"
+																width="128" height="128" />
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+							</div>
+						</div>
+			</main>
+{% endblock %}

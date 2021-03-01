@@ -1,0 +1,363 @@
+{% extends 'base/layout.html' %}
+{% block body %}
+<body>
+	<div class="splash active">
+		<div class="splash-icon"></div>
+	</div>
+
+	<div class="wrapper">
+		{% include "includes/_sidenav-candidate.html" %}
+		<div class="main">
+			{% include "includes/_navbar-candidate.html" %}
+			<main class="content">
+				<div class="container-fluid">
+
+					<div class="header">
+						<h1 class="header-title">
+							My Profile
+						</h1>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="{{url_for('candidate.candidate_index')}}">Dashboard</a></li>
+								<li class="breadcrumb-item"><a href="#">Pages</a></li>
+								<li class="breadcrumb-item active" aria-current="page">My Profile</li>
+							</ol>
+						</nav>
+					</div>
+					<div class="row">
+						<div class="col-md-3 col-xl-2">
+
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title mb-0">About ME</h5>
+								</div>
+
+								<div class="list-group list-group-flush" role="tablist">
+									<a class="list-group-item list-group-item-action active" data-toggle="list" href="#personal-info" role="tab">
+										Personal Information
+									</a>
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#academic-information" role="tab">
+										Academic Information
+									</a>
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#health" role="tab">
+										Health and Allergies
+									</a>
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#work-experience" role="tab">
+										Work Experience
+									</a>
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#salary-expectations" role="tab">
+										Salary and Package Expectations
+									</a>
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#references" role="tab">
+										References
+									</a>
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#summary" role="tab">
+										Summary
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-9 col-xl-10">
+							<div class="tab-content">
+								<div class="tab-pane fade show active" id="personal-info" role="tabpanel">
+
+									<div class="card">
+										<div class="card-header">
+											<div class="card-actions float-right">
+												<a href="#" class="mr-1">
+													<i class="align-middle" data-feather="refresh-cw"></i>
+												</a>
+												<div class="d-inline-block dropdown show">
+													<a href="#" data-toggle="dropdown" data-display="static">
+														<i class="align-middle" data-feather="more-vertical"></i>
+													</a>
+
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="#">Action</a>
+														<a class="dropdown-item" href="#">Another action</a>
+														<a class="dropdown-item" href="#">Something else here</a>
+													</div>
+												</div>
+											</div>
+											<h5 class="card-title mb-0">Personal Information</h5>
+										</div>
+										<div class="card-body">
+											<form>
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<label for="inputFirstName">First name</label>
+														<input type="text" class="form-control" id="inputFirstName" placeholder="First name">
+													</div>
+													<div class="form-group col-md-6">
+														<label for="inputLastName">Last name</label>
+														<input type="text" class="form-control" id="inputLastName" placeholder="Last name">
+													</div>
+												</div>
+											
+												
+												
+												<div class="form-row">
+													<div class="form-group col-md-4">
+														<label for="inputState">Date of Birth</label>
+														<input type="date" class="form-control" id="inputDate" placeholder="29-08-1994">
+													</div>
+													<div class="form-group col-md-4">
+														<label for="inputSex">Sex</label>
+														<select id="inputState" class="form-control">
+															<option selected>Choose...</option>
+															<option>Male</option>
+															<option>Female</option>
+															<option>Trans</option>
+															<option>Rather not say</option>
+														</select>
+													</div>
+													<div class="form-group col-md-4">
+														<label for="inputState">Marital Status</label>
+														<select id="inputState" class="form-control">
+															<option selected>Choose...</option>
+															<option>Single</option>
+															<option>Married</option>
+															<option>Rather not say</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<label for="inputIDNumber">ID Number</label>
+														<input type="text" class="form-control" id="inputIDNumber" placeholder="70123456A00">
+														<small style="color: red;">With no dashes and no spaces</small>
+													</div>
+													<div class="form-group col-md-6">
+														<label for="inputBirthPlace">Place of Birth</label>
+														<input type="text" class="form-control" id="inputBirthPlace" placeholder="e.g Bindura">
+													</div>
+												</div>
+												<button type="submit" class="btn btn-primary">Save changes</button>
+											</form>
+
+										</div>
+									</div>
+
+								</div>
+								<div class="tab-pane fade" id="academic-information" role="tabpanel">
+									<div class="card">
+										<div class="card-body">
+											<h5 class="card-title">Academic Information and Professional Information</h5>
+
+											<form>
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<label for="action_id" class="control-label">Name of Institution</label>
+														<input type="text" class="form-control" id="action_id" placeholder="e.g University of Zimbabwe" name="action_id">
+													</div>
+													<div class="form-group col-md-6">
+														<label for="inputState">Date of Completion</label>
+														<input type="date" class="form-control" id="inputDate" placeholder="29-08-1994">
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<label for="action_id" class="control-label">Program Name</label>
+														<input type="text" class="form-control" id="action_id" placeholder="e.g Computer Science" name="action_id">
+													</div>
+													<div class="form-group col-md-6">
+														<label for="inputState">Level of Qualification</label>
+														<select id="inputState" class="form-control">
+															<option selected>Choose...</option>
+															<option>Short Course</option>
+															<option>National Certificate</option>
+															<option>Diploma</option>
+															<option>Bachelor's Degree</option>
+															<option>Honor's Degree</option>
+															<option>Master's Degree</option>
+															<option>Doctorate</option>
+														</select>
+													</div>
+												</div>
+												
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<button id="add-more" name="add-more" class="btn btn-primary">Add More</button>
+													</div>
+												</div>
+												
+											</form>
+
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="health" role="tabpanel">
+									<div class="card">
+										<div class="card-body">
+											<h5 class="card-title">Health and Allergies</h5>
+											<form>
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<label for="inputState">Do you any allergies or medical conditions?</label>
+														<select id="inputState" class="form-control">
+															<option selected>Choose...</option>
+															<option>Yes</option>
+															<option>NO</option>
+														</select>
+													</div>
+													<div class="form-group col-md-6">
+														<label for="action_id" class="control-label">If yes, Specify?</label>
+														<input type="text" class="form-control" id="action_id" placeholder="  " name="action_id">
+														<small style="color: red;">In not more than 50 words</small>
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<button id="submit" name="submit" class="btn btn-primary">Save Changes</button>
+													</div>
+												</div>
+												
+											</form>
+											
+										</div>
+										
+									</div>	
+								</div>
+								<div class="tab-pane fade" id="work-experience" role="tabpanel">
+									<div class="card">
+										<div class="card-body">
+											<h5 class="card-title">Work Experience</h5>
+
+											<form>
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<label for="action_id" class="control-label">Name of Company</label>
+														<input type="text" class="form-control" id="action_id" placeholder="e.g University of Zimbabwe" name="action_id">
+													</div>
+													<div class="form-group col-md-6">
+														<label for="action_id" class="control-label">Position</label>
+														<input type="text" class="form-control" id="action_id" placeholder="e.g Computer Science" name="action_id">
+													</div>
+													
+												</div>
+												<div class="form-row">
+													<div class="form-group col-md-4">
+														<label for="inputState">Start Date</label>
+														<input type="date" class="form-control" id="inputDate" placeholder="29-08-1994">
+													</div>
+													<div class="form-group col-md-4">
+														<label for="inputState">End date</label>
+														<input type="date" class="form-control" id="inputDate" placeholder="29-08-1994">
+													</div>
+													<div class="form-group col-md-4">
+														<label for="inputState">Type of Employment</label>
+														<select id="inputState" class="form-control">
+															<option selected>Choose...</option>
+															<option>Independent Contract</option>
+															<option>Fixed Term</option>
+															<option>Full time</option>
+															<option>Part time</option>
+															<option>Voluntary</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col-md-12">
+														<label for="reason">Reasons for leaving?</label>
+														<input type="text" name="reason" class="form-control" >
+													</div>
+												</div>
+												
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<button id="add-more" name="add-more" class="btn btn-primary">Add More</button>
+													</div>
+													<div class="form-group col-md-6">
+														<button id="add-more" name="add-more" class="btn btn-primary">Save changes</button>
+													</div>
+												</div>
+											</form>
+
+										</div>
+									</div>
+								</div>
+								
+								<div class="tab-pane fade" id="salary-expectations" role="tabpanel">
+									<div class="card">
+										<div class="card-body">
+											<h5 class="card-title">Salary Expectations in (USD) equivalence</h5>
+											<form>
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<label for="salary">How much do you expect to be paid?</label>
+														<input type="number" name="salary" class="form-control">
+														<small style="color: red;">Put a USD equivalent ammount</small>
+													</div>
+													<div class="form-group col-md-6">
+														<label for="inputState">Is this salary negotiable?</label>
+														<select id="inputState" class="form-control">
+															<option selected>Choose...</option>
+															<option>Yes</option>
+															<option>No</option>
+														</select>
+													</div>
+												</div>
+												<div>
+													
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="references" role="tabpanel">
+									<div class="card">
+										<div class="card-body">
+											<h5 class="card-title">References</h5>
+											<form>
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<label for="inputFirstName">Full Name</label>
+														<input type="text" class="form-control" id="inputFirstName" placeholder="John Doe">
+													</div>
+													<div class="form-group col-md-6">
+														<label for="inputLastName">Company</label>
+														<input type="text" class="form-control" id="inputLastName" placeholder="e.g Econet Wireless">
+													</div>
+												</div>
+											
+												
+												
+												<div class="form-row">
+													<div class="form-group col-md-4">
+														<label for="inputState">Position</label>
+														<input type="text" class="form-control" id="inputDate" placeholder="eg. Manager">
+													</div>
+													<div class="form-group col-md-4">
+														<label for="inputSex">Email</label>
+														<input type="email" name="email" class="form-control" placeholder="e.g johndoe@example.com">
+													</div>
+													<div class="form-group col-md-4">
+														<label for="inputState">Phone Number</label>
+														<input type="phone" name="phone" class="form-control" placeholder="e.g 263777222333">
+													</div>
+												</div>
+												<div class="form-row">
+													<button type="submit" class="btn btn-primary">Save changes</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="summary" role="tabpanel">
+									<div class="card">
+										<div class="card-body">
+											<h5 class="card-title">All your information so far!</h5>
+											<form>
+												Summary
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		
+{% endblock %}
